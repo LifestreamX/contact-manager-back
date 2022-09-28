@@ -1,0 +1,72 @@
+{
+  "contacts": [
+    {
+      "id": "1",
+      "name": "Eddy",
+      "photo": "https://st.depositphotos.com/1224365/2498/i/450/depositphotos_24980235-stock-photo-portrait-of-a-normal-man.jpg",
+      "number": "506-323-5529",
+      "email": "eddy123@gmail.com",
+      "title": "manager",
+      "company": "Contruction co",
+      "relationship": "1"
+    },
+    {
+      "id": "2",
+      "name": "billy",
+      "photo": "https://media.istockphoto.com/photos/happy-smiling-man-looking-away-picture-id1158245623?k=20&m=1158245623&s=612x612&w=0&h=rGmn02kNdoQySPEoQmbbDBxOayL4sdW3QWqP9rjgxCg=",
+      "number": "592-421-5829",
+      "email": "billyiscool141@yahoo.com",
+      "title": "reporter",
+      "company": "news station",
+      "relationship": "2"
+    },
+    {
+      "id": "3",
+      "name": "Billy Tuna",
+      "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT82Fj2rv39HeOK3m1QHQHACMqf68-BvPq2vg&usqp=CAU",
+      "number": "693-459-4249",
+      "email": "tunalove55@gmail.com",
+      "title": "food",
+      "company": "Tuna factory",
+      "relationship": "3"
+    },
+    {
+      "id": "4",
+      "name": "corgi",
+      "photo": "https://www.akc.org/wp-content/uploads/2017/11/Pembroke-Welsh-Corgi-standing-outdoors-in-the-fall.jpg",
+      "number": "545-999-5398",
+      "email": "corgiland@yahoo.com",
+      "title": "corgi owner",
+      "company": "corgi land",
+      "relationship": "2"
+    },
+    {
+      "name": "fgd",
+      "photo": "dfgdfg",
+      "number": "gfdfg",
+      "email": "tylerallen@live.com",
+      "title": "dgdfg",
+      "company": "fgdg",
+      "relationship": "3",
+      "id": "kXiiP9Q"
+    }
+  ],
+  "groups": [
+    {
+      "id": "1",
+      "name": "Single"
+    },
+    {
+      "id": "2",
+      "name": "Married"
+    },
+    {
+      "id": "3",
+      "name": "Dating"
+    },
+    {
+      "id": "4",
+      "name": "Complicated"
+    }
+  ]
+}
