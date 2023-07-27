@@ -6,6 +6,11 @@ const middlewares = jsonServer.defaults({
 });
 const { fs } = require('memfs'); // Import memfs
 
+
+// Import and use micro-cors middleware
+const cors = require('micro-cors')();
+server.use(cors);
+
 const PORT = process.env.PORT || 9000;
 
 server.use(middlewares);
