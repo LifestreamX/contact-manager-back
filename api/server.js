@@ -1,16 +1,19 @@
 const jsonServer = require('json-server');
-const { fs } = require('memfs'); // Import memfs
 const server = jsonServer.create();
 const router = jsonServer.router('./db.json');
 const middlewares = jsonServer.defaults({
   static: './build',
 });
 
-// Import and use micro-cors middleware
-const cors = require('micro-cors')();
-server.use(cors);
-
 const PORT = process.env.PORT || 9000;
+
+// Enable CORS for all origins
+server.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept');
+  next();
+});
 
 server.use(middlewares);
 
