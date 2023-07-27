@@ -4,6 +4,7 @@ const router = jsonServer.router('./db.json');
 const middlewares = jsonServer.defaults({
   static: './build',
 });
+const { fs } = require('memfs'); // Import memfs
 
 const PORT = process.env.PORT || 9000;
 
