@@ -1,11 +1,10 @@
 const jsonServer = require('json-server');
+const { fs } = require('memfs'); // Import memfs
 const server = jsonServer.create();
 const router = jsonServer.router('./db.json');
 const middlewares = jsonServer.defaults({
   static: './build',
 });
-const { fs } = require('memfs'); // Import memfs
-
 
 // Import and use micro-cors middleware
 const cors = require('micro-cors')();
