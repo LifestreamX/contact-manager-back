@@ -21,6 +21,8 @@ const jsonServer = require('json-server');
 const server = jsonServer.create();
 const router = jsonServer.router('./db.json');
 
+const PORT = process.env.PORT || 9000;
+
 // Make sure to use the default middleware
 const middlewares = jsonServer.defaults();
 
@@ -34,8 +36,8 @@ server.use(
 );
 server.use(router);
 // Listen to port
-server.listen(3000, () => {
-  console.log('JSON Server is running');
+server.listen(PORT, () => {
+  console.log('Server is running');
 });
 
 // Export the Server API
