@@ -34,13 +34,10 @@ const middlewares = jsonServer.defaults();
 const customCorsMiddleware = (req, res, next) => {
   res.setHeader(
     'Access-Control-Allow-Origin',
-    'https://contactmanager.tyler-allen.com'
+    'https://contact-manager-back.vercel.app'
   ); // Replace this with your frontend domain
-  res.setHeader(
-    'Access-Control-Allow-Origin',
-    'https://contact-manager-back.vercel.app/contacts'
-  );
 
+  
   res.setHeader(
     'Access-Control-Allow-Methods',
     'GET, POST, PUT, PATCH, DELETE, OPTIONS'
