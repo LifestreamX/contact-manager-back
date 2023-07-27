@@ -1,47 +1,42 @@
+// const jsonServer = require('json-server');
+// const server = jsonServer.create();
+// const router = jsonServer.router('./db.json');
+// const middlewares = jsonServer.defaults({
+//   static: './build',
+// });
+// const PORT = process.env.PORT || 9000;
+// server.use(middlewares);
+// server.use(
+//   jsonServer.rewriter({
+//     '/api/*': '/$1',
+//   })
+// );
+// server.use(router);
+// server.listen(PORT, () => {
+//   console.log('Server is running');
+// });
 
-
-
-
+// JSON Server module
 const jsonServer = require('json-server');
 const server = jsonServer.create();
-const router = jsonServer.router('./db.json');
-const middlewares = jsonServer.defaults({
-  static: './build',
-});
-const PORT = process.env.PORT || 9000;
+const router = jsonServer.router('db/db.json');
+
+// Make sure to use the default middleware
+const middlewares = jsonServer.defaults();
+
 server.use(middlewares);
+// Add this before server.use(router)
 server.use(
+  // Add custom route here if needed
   jsonServer.rewriter({
     '/api/*': '/$1',
   })
 );
 server.use(router);
-server.listen(PORT, () => {
-  console.log('Server is running');
+// Listen to port
+server.listen(3000, () => {
+  console.log('JSON Server is running');
 });
 
-// const jsonServer = require('json-server');
-// const clone = require('clone');
-// const data = require('./db.json');
-
-// const isProductionEnv = process.env.NODE_ENV === 'production';
-// const server = jsonServer.create();
-
-// const router = jsonServer.router(isProductionEnv ? clone(data) : 'db.json', {
-//   _isFake: isProductionEnv,
-// });
-// const middlewares = jsonServer.defaults();
-
-// server.use(middlewares);
-
-// server.use((req, res, next) => {
-//   if (req.path !== '/') router.db.setState(clone(data));
-//   next();
-// });
-
-// server.use(router);
-// server.listen(process.env.PORT || 9000, () => {
-//   console.log('JSON Server is running');
-// });
-
-// module.exports = server;
+// Export the Server API
+module.exports = server;
