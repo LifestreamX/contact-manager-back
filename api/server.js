@@ -32,7 +32,8 @@ server.use(
   // Add custom route here if needed
   jsonServer.rewriter({
     '/api/*': '/$1',
-    '/blog/:resource/:id/show': '/:resource/:id',
+    // '/blog/:resource/:id/show': '/:resource/:id',
+
   })
 );
 
