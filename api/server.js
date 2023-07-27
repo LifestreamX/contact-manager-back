@@ -16,47 +16,22 @@
 //   console.log('Server is running');
 // });
 
+
+
+
 const jsonServer = require('json-server');
 const clone = require('clone');
 const data = require('./db.json');
-const cors = require('cors');
 
 const isProductionEnv = process.env.NODE_ENV === 'production';
 const server = jsonServer.create();
 
-// For mocking the POST request, POST request won't make any changes to the DB in the production environment
+// For mocking the POST request, POST request won't make any changes to the DB in production environment
 const router = jsonServer.router(isProductionEnv ? clone(data) : 'db.json', {
   _isFake: isProductionEnv,
 });
 const middlewares = jsonServer.defaults();
 
-// Custom CORS middleware
-const customCorsMiddleware = (req, res, next) => {
-  res.setHeader(
-    'Access-Control-Allow-Origin',
-    'https://contact-manager-back.vercel.app'
-  ); // Replace this with your frontend domain
-
-  
-  res.setHeader(
-    'Access-Control-Allow-Methods',
-    'GET, POST, PUT, PATCH, DELETE, OPTIONS'
-  );
-  res.setHeader(
-    'Access-Control-Allow-Headers',
-    'X-Requested-With, Content-Type, Authorization'
-  );
-  res.setHeader('Access-Control-Allow-Credentials', true);
-
-  if (req.method === 'OPTIONS') {
-    // Preflight request response
-    return res.sendStatus(200);
-  }
-
-  next();
-};
-
-server.use(customCorsMiddleware); // Add the custom CORS middleware here
 server.use(middlewares);
 
 server.use((req, res, next) => {
