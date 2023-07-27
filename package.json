@@ -10,8 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "json-server": "^0.17.0",
-    "memfs": "^4.2.0",
-    "micro-cors": "^0.1.1"
+    "json-server": "^0.17.0"
   }
 }
