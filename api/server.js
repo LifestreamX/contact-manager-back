@@ -4,6 +4,8 @@ const router = jsonServer.router('./db.json');
 const middlewares = jsonServer.defaults({
   static: './build',
 });
+
+
 const PORT = process.env.PORT || 9000;
 
 
@@ -20,9 +22,6 @@ server.use(router);
 
 
 
-server.get('/warm-up', (req, res) => {
-  res.status(200).send('Function is warm');
-});
 
 
 server.listen(PORT, () => {
