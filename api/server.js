@@ -7,6 +7,7 @@ const middlewares = jsonServer.defaults({
 const PORT = process.env.PORT || 9000;
 
 
+
 server.use(middlewares);
 
 
@@ -16,6 +17,12 @@ server.use(
   })
 );
 server.use(router);
+
+
+
+server.get('/warm-up', (req, res) => {
+  res.status(200).send('Function is warm');
+});
 
 
 server.listen(PORT, () => {
