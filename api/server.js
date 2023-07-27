@@ -37,6 +37,11 @@ const customCorsMiddleware = (req, res, next) => {
     'https://contactmanager.tyler-allen.com'
   ); // Replace this with your frontend domain
   res.setHeader(
+    'Access-Control-Allow-Origin',
+    'https://contact-manager-back.vercel.app/contacts'
+  );
+
+  res.setHeader(
     'Access-Control-Allow-Methods',
     'GET, POST, PUT, PATCH, DELETE, OPTIONS'
   );
