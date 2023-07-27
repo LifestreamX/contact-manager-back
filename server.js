@@ -1,48 +1,43 @@
-// const jsonServer = require('json-server');
-// const server = jsonServer.create();
-// const router = jsonServer.router('./db.json');
-// const middlewares = jsonServer.defaults({
-//   static: './build',
-// });
-// const PORT = process.env.PORT || 9000;
-// server.use(middlewares);
-// server.use(
-//   jsonServer.rewriter({
-//     '/api/*': '/$1',
-//   })
-// );
-// server.use(router);
-// server.listen(PORT, () => {
-//   console.log('Server is running');
-// });
-
-
-
-
 const jsonServer = require('json-server');
-const clone = require('clone');
-const data = require('./db.json');
-
-const isProductionEnv = process.env.NODE_ENV === 'production';
 const server = jsonServer.create();
-
-// For mocking the POST request, POST request won't make any changes to the DB in production environment
-const router = jsonServer.router(isProductionEnv ? clone(data) : 'db.json', {
-  _isFake: isProductionEnv,
+const router = jsonServer.router('./db.json');
+const middlewares = jsonServer.defaults({
+  static: './build',
 });
-const middlewares = jsonServer.defaults();
-
+const PORT = process.env.PORT || 9000;
 server.use(middlewares);
-
-server.use((req, res, next) => {
-  if (req.path !== '/') router.db.setState(clone(data));
-  next();
-});
-
+server.use(
+  jsonServer.rewriter({
+    '/api/*': '/$1',
+  })
+);
 server.use(router);
-server.listen(process.env.PORT || 9000, () => {
-  console.log('JSON Server is running');
+server.listen(PORT, () => {
+  console.log('Server is running');
 });
 
-// Export the Server API
-module.exports = server;
+// const jsonServer = require('json-server');
+// const clone = require('clone');
+// const data = require('./db.json');
+
+// const isProductionEnv = process.env.NODE_ENV === 'production';
+// const server = jsonServer.create();
+
+// const router = jsonServer.router(isProductionEnv ? clone(data) : 'db.json', {
+//   _isFake: isProductionEnv,
+// });
+// const middlewares = jsonServer.defaults();
+
+// server.use(middlewares);
+
+// server.use((req, res, next) => {
+//   if (req.path !== '/') router.db.setState(clone(data));
+//   next();
+// });
+
+// server.use(router);
+// server.listen(process.env.PORT || 9000, () => {
+//   console.log('JSON Server is running');
+// });
+
+// module.exports = server;
